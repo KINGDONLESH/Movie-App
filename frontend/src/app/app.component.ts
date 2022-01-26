@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ngbCarouselTransitionOut } from '@ng-bootstrap/ng-bootstrap/carousel/carousel-transition';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'frontend';
+  title = 'string';
+  viewmore: number = 10;
+  moviesListItems!: number[];
+  viewLess!: number;
+  showMore!:any;
+  movievsListItems!: any;
+
+ viewMoreToggle(): void {
+  this.viewmore = this.moviesListItems[0] + 5;  
+ }
+
+ viewLessTogggle(): void{
+  this.viewLess = this.viewmore -5;
+  }
 }
+
+function viewLessTogggle() {
+  throw new Error('Function not implemented.');
+}
+
