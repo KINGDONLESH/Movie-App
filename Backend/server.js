@@ -1,39 +1,20 @@
 const express = require('express');
-const Sequelize = require('sequelize')
-const { Client } = require('pg')
-
+const commentRoute = require('./routes/comment');
+const userRoute =  require('./routes/user')
+const watchlistRoute = require('./routes/watchlist')
+const authRoute = require('./routes/auth')
 const app = express();
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
-const client = new Client({
-    host: 'localhost',
-    user: 'postgres',
-    port: 5432,
-    password: 'groupe',
-    database: 'movie'
-});
-
-client.connect();
-
-app.use(express.json()); // req.body
-
-app.get('/',(req,res)=>{
-    client.query(`select * from users`, (err,results) =>{
-        if(!err){
-            console.log(results.rows);
-            res.send(results.rows);
-        }
-        else{
-            console.log(err.message);
-            
-        }
-    })
-    
-})
+app.use('/comment', commentRoute);
+app.use('/user', userRoute);
+app.use('/watchlist', watchlistRoute);
+app.use('/auth', authRoute);
 
 
 app.listen(3000, ()=>{
     console.log('server is listening to port 3000');
 })
-
 
