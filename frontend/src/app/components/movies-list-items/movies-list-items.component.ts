@@ -13,18 +13,14 @@ export class MoviesListItemsComponent implements OnInit {
   results: any = [];
   title: any;
   pic: any;
-  showMore: any = 10;
-  showLess: any = 5
-
-
+  numberOfMovies : number = 10;
+  moviesToBeDisplayed: any;
 
   constructor(private movieApi: MovieServiceService) { 
     this.movieArr = []
     
     
      }
-  
-
 
   ngOnInit(): void {
     this.getPupolarMovies();
@@ -43,16 +39,25 @@ export class MoviesListItemsComponent implements OnInit {
   //   })
   // }
 
+  // showMore(){
+  //   this.paginationLimit = Number(this.paginationLimit) + 10;
+  // }
+
+  // showLess(){
+  //   this.paginationLimit = Number(this.paginationLimit) - 10;
+  // }
+
   getPupolarMovies(): void{
     this.movieApi.popularMovies()
     .subscribe((res: any) => {
-      this.movieArr = res.results; 
+      this.movieArr = res.results.splice(0, this.numberOfMovies);
+      
+      console.log('The length of movie array:', this.movieArr.length)
       console.log(this.movieArr);
       //console.log(this.movieArr[0].title);
-      
     },err =>{
       console.log(err);
-      
+  
     })
   }
 
@@ -64,4 +69,29 @@ export class MoviesListItemsComponent implements OnInit {
     // console.log(this.pic);
     
   }
+
+  setMovieId(id: any): void{
+    this.movieApi.setDetailMovieId(id);
+    console.log(id);
+    
+  }
+
+
+  showMoreItems(){
+
+    if(this.numberOfMovies < 20 ){
+      this.numberOfMovies = this.numberOfMovies + 5
+      this.getPupolarMovies()
+    }
+  }
+
+  showLessItems(){
+    if(this.numberOfMovies  > 10){
+      this.numberOfMovies = this.numberOfMovies - 5
+      this.getPupolarMovies()
+    }
+  }
+
+
+
 }

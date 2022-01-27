@@ -66,10 +66,7 @@ form .input-box span.details{
 .user-details .input-box input:valid{
   border-color: #9b59b6;
 }
- form .gender-details .gender-title{
-  font-size: 20px;
-  font-weight: 500;
- }
+ 
  form .category{
    display: flex;
    width: 80%;
@@ -90,15 +87,6 @@ form .input-box span.details{
   border: 5px solid transparent;
   transition: all 0.3s ease;
 }
- #dot-1:checked ~ .category label .one,
- #dot-2:checked ~ .category label .two,
- #dot-3:checked ~ .category label .three{
-   background: #9b59b6;
-   border-color: #d9d9d9;
- }
- form input[type="radio"]{
-   display: none;
- }
  form .button{
    height: 45px;
    margin: 35px 0
@@ -112,6 +100,7 @@ form .input-box span.details{
    font-size: 18px;
    font-weight: 500;
    letter-spacing: 1px;
+   margin-bottom: 10px;
    cursor: pointer;
    transition: all 0.3s ease;
    background: linear-gradient(135deg,  #8a8082, #6b0b23);

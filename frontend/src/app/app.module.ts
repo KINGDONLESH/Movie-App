@@ -22,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { MovielistComponent } from './components/movielist/movielist.component';
 
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -47,8 +48,9 @@ import { MovielistComponent } from './components/movielist/movielist.component';
     RouterModule,
     //NgModule,
     NgbModule,
-    HttpClientModule
-
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

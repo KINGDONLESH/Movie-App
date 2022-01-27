@@ -52,10 +52,10 @@ exports.create = (req, res) => {
  */
 exports.remove = (req, res) => {
     let query = {
-        text: 'DELETE FROM comments WHERE id = $1 RETURNING *',
+        text: 'DELETE FROM comments WHERE comment_id = $1 RETURNING *',
         value: [req.params.id]
     }
-    pool.query(query)
+    pool.query(query.text, query.value)
         .then(data => {
             console.log(data.rows);
             return res.send(data.rows);
