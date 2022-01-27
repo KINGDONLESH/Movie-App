@@ -20,6 +20,7 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 // import { FooterComponent } from './components/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { MovielistComponent } from './components/movielist/movielist.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { RouterModule } from '@angular/router';
     LoginComponent,
     SignupComponent,
     GalleryComponent,
-    FooterComponent
+    FooterComponent,
+    MovielistComponent
   ],
   imports: [
     BrowserModule,

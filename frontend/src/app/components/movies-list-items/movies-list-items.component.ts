@@ -8,17 +8,23 @@ import { MovieServiceService } from 'src/app/services/movie-service.service';
   styleUrls: ['./movies-list-items.component.scss']
 })
 export class MoviesListItemsComponent implements OnInit {
-
   rating = 0;
   movieArr: any = [];
   results: any = [];
   title: any;
   pic: any;
+  showMore: any = 10;
+  showLess: any = 5
+
 
 
   constructor(private movieApi: MovieServiceService) { 
+    this.movieArr = []
     
-  }
+    
+     }
+  
+
 
   ngOnInit(): void {
     this.getPupolarMovies();

@@ -1,0 +1,188 @@
+/* for glow on hover */
+.glow-on-hover {
+    color: black;
+    background: #cccccc;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+.glow-on-hover:active {
+    color: #000
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #cccccc;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+
+
+
+
+// setup:
+
+$black: #191919;
+$white: #FFF;
+$pear: #D6D35D;
+$buttonWidth: 185px;
+$buttonHeight: 60px;
+$font: "Helvetica Neue", "Calibri Light", Roboto, sans-serif;
+
+body {
+   min-height: 100vh;
+   position: relative;
+   font-family: $font;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+   letter-spacing: 0.01em;
+}
+
+h1 {
+   text-align: center;
+   margin-bottom: 100px;
+}
+
+// helper cleasses:
+
+.centered {
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   margin: auto;
+}
+
+.full {
+   width: 100%;
+   height: 100%;
+}
+
+// button style:
+
+.button {
+   @extend .centered;
+   width: $buttonWidth + 20px;
+   height: $buttonHeight + 20px;
+    margin-top: 100px;
+   perspective: 1800px;
+   overflow: hidden;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+   .qube {
+      position: relative;
+      height: $buttonHeight;
+      width: $buttonWidth;
+      perspective: 1800px;
+
+      .front, .back {
+         @extend .full;
+         backface-visibility: hidden;
+         transform-style: preserve-3d;
+         transform: rotateX(-90deg);
+         transition: transform 0.3s ease;
+         position: absolute;
+         color: $white;
+         line-height: $buttonHeight;
+         text-align: center;
+      }
+
+      .front {
+         background-color: $black;
+
+         &::before {
+            @extend .centered;
+            @extend .full;
+            content: '';
+            display: block;
+            z-index: -1;
+         }
+
+         &::after {
+            background: $white;
+            content: '';
+            height: 155px;
+            left: -75px;
+            opacity: .4;
+            position: absolute;
+            top: -50px;
+            transform: rotate(35deg);
+            transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+            width: $buttonHeight - 10px;
+            z-index: 1;
+         }
+      }
+
+      .back {
+         background-color: $pear;
+         color: $black;
+         transform: rotateX(0deg) translateZ($buttonHeight);
+      }
+
+      &:hover {
+
+         .front {
+            transform: rotateX(0deg) translateZ( $buttonHeight / 2 );
+         }
+
+         .back {
+            transform: rotateX(90deg) translateZ( $buttonHeight / 2 );
+         }
+      }
+   }
+
+   &:active {
+
+      .front {
+         border-radius: 0;
+         background-color: transparent;
+         color: $black;
+
+         &::before {
+            background-color: $pear;
+            transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+         }
+
+         &::after {
+            left: 120%;
+            transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+         }
+      }
+   }
+}
+
