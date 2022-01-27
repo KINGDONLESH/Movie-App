@@ -23,9 +23,13 @@ export class MovieDetailsComponent implements OnInit {
   constructor(private movieApi: MovieServiceService) { }
 
   ngOnInit(): void {
+    this.getMovie();
+    this.getPupolarMovies();
+    console.log("shu")
   }
 
   getPupolarMovies(): void{
+    console.log("Shiba");
     this.movieApi.popularMovies()
     .subscribe((res: any) => {
       this.movieArr = res.results; 
@@ -44,6 +48,8 @@ export class MovieDetailsComponent implements OnInit {
 
     // this.pic = this.movieArr.results.backdrop_path;
     console.log(this.movie_name);
+    console.log("shiba");
+    //console.log(this.movieArr[0].vote_average);
     // console.log(this.pic);
     
   }
