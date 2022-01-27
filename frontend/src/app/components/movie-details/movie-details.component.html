@@ -2,13 +2,16 @@
 
 <br><br><br>
 <div class="container">
-  
+
+  <br><br><br>
+
     <div class="row">
         <!-- Movie cover -->
-        <span class="rating d-flex justify-content-end">Rating:  <i class=" checked fas fa-star"></i> {{movie_rating}}</span>
+        <!-- <span class="rating d-flex justify-content-end">Rating:  <i class=" checked fas fa-star"></i> {{movie_rating}}</span> -->
         
-      <div class="movie-cover col-sm">
+      <div class="movie-cover col-sm-4">
         <img src="https://picsum.photos/seed/picsum/200/300" class="cover" alt="">
+        <p class="rating" style="padding-top: 8px;">Rating:  <i class=" checked fas fa-star"></i> {{movie_rating}}</p>
       </div>
       <!-- Movie details -->
       <div class="movie-details col-sm">
@@ -22,7 +25,15 @@
         <span ><p class="run-time">Director: {{movie_director}}</p></span>
         <br>
         <span ><p class="run-time">Run Time: {{movie_runtime}}</p></span>
+        <br>
         <span ><p class="release-date">Release Date: {{movie_release_date}}</span>
       </div>
+      
+      <div class="container-fluid">
+        <div class="d-flex justify-content-end">
+          <button class="btn btn-outline-primary">+ Wishlist</button>
+        </div>
+      </div>
+      
     </div>
 <br>
