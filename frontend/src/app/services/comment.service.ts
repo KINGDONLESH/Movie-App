@@ -39,4 +39,14 @@ export class CommentService {
   removeCommentById(commentId: string): Observable<any> {
     return this.http.delete(`${BaseUrl}/${commentId}`);
   }
+
+  /**
+   * 
+   * @param commentId id of comment as recorded in the database
+   * @param newComment { message }
+   * @returns Observable<{}> : { comment_id, message, user_id, movie_id, created_at }
+   */
+  updateCommentById(commentId: string, newComment: string): Observable<any> {
+    return this.http.put(`${BaseUrl}/${commentId}`, {comment: newComment})
+  }
 }
