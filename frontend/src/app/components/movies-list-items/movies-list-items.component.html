@@ -1,8 +1,10 @@
 <div class="mt-0">
     <app-carousal></app-carousal>
+    <br><br><br>
 </div>
 
 <div class="container-fluid mt-3">
+    
     <h4><strong>Browse Movies</strong> </h4>
 </div>
 
@@ -10,10 +12,10 @@
     <div class="card mt-4 mx-3"  routerLink='details' style="width: 12rem;" *ngFor="let movie of movieArr">
                 
         <img class="card-img-top" src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="movie.original_title">
-                <!-- <div class="card-body">
+                <div class="card-body">
                     <p class="card-title">{{movie.original_title}}</p>
-                    <p class="card-text">{{movie.release_date}}</p>
-        </div> -->
+                    <p class="card-rating">Rating: {{movie.vote_average}}</p>
+        </div>
     </div>
 </div>
 
