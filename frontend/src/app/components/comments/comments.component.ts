@@ -42,6 +42,7 @@ export class CommentsComponent implements OnInit {
   username: any = "Shiba username";
   comment: any = "Koenaite comment";
   getComments: any;
+  testArr: any = list
   constructor(private CommentApi: CommentService) { 
     // this.commentsArr = []
 
