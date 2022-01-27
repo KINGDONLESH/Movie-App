@@ -33,9 +33,10 @@ VALUES
 DROP TABLE IF EXISTS watchlist CASCADE;
 CREATE TABLE watchlist(
     watchlist_id SERIAL PRIMARY KEY,
-    FOREIGN KEY (user_id) REFERENCES users (user_id),
-    movie_id VARCHAR(50) NOT NULL
-    created_at TIMESTAMPTZ DEFAULT NOW()
+    movie_id VARCHAR(50) NOT NULL,
+    user_id INT NOT NULL,
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    FOREIGN KEY(user_id) REFERENCES users (user_id)
 );
 
 --COMMENTS TABLE
@@ -45,7 +46,6 @@ CREATE TABLE comments(
     message VARCHAR(1000) NOT NULL,
     user_id INT NOT NULL,
     movie_id INT NOT NULL,
-    created_at TIMESTAMPTZ DEFAULT NOW()
+    created_at TIMESTAMPTZ DEFAULT NOW(),
     FOREIGN KEY(user_id) REFERENCES users (user_id)
-    
 );
