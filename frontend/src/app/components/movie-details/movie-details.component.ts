@@ -1,6 +1,6 @@
 import { Variable } from '@angular/compiler/src/render3/r3_ast';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Chart } from 'chart.js';
+
 import { MovieServiceService } from 'src/app/services/movie-service.service';
 
 
