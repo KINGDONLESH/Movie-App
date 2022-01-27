@@ -13,7 +13,7 @@ exports.get = (req, res) => {
         text: 'SELECT * FROM watchlist WHERE user_id = $1',
         values: [req.params.userId]
     }
-    pool.query(query)
+    pool.query(query.text, query.values)
         .then(data => {
             console.log(data.rows);
             return res.send(data.rows);
@@ -33,7 +33,7 @@ exports.create = (req, res) => {
         text: 'INSERT INTO watchlist(user_id, movie_id) VALUES($1, $2) RETURNING *',
         values: [req.body.userId, req.body.movieId]
     }
-    pool.query(query)
+    pool.query(query.text, query.values)
         .then(data => {
             console.log(data.rows);
             return res.send(data.rows);
@@ -53,7 +53,7 @@ exports.remove = (req, res) => {
         text: 'DELETE FROM watchlist WHERE watchlist_id = $1 RETURNING *',
         values: [req.params.id]
     }
-    pool.query(query)
+    pool.query(query.text, query.values)
         .then(data => {
             console.log(data.rows);
             return res.send(data.rows);

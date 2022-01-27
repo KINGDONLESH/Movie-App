@@ -1,47 +1,29 @@
-<br><div class="container col-sm">
-    <div class="row">      
-    <!-- comment cover -->
-    <div class="movie-cover col-sm-2">
-        <img src="https://picsum.photos/seed/picsum/200/300" class="cover" alt="">
+<div class="container mx-md-5 px-md-5">
+
+  <div class="mb-5">
+    <div class="row align-items-center">
+      <div class="col-1"  style="max-width: 80px;">
+        <img src="https://picsum.photos/seed/picsum/200" class="img-fluid rounded-3" alt="">
       </div>
-      <!-- comment details -->
-      <div class="movie-details col-sm-2">
-        <input type="text" class="search-input" placeholder="Enter comment here...">
-        <br>
+      <textarea class="form-control col" id="exampleFormControlTextarea1" placeholder="join the conversation. . ." rows="1"></textarea>
+    </div>
+  </div>
+
+  <div class="mb-5" *ngFor="let item of testArr">
+    <div class="row align-items-start">
+      <div class="col-1"  style="max-width: 80px;">
+        <img src="https://picsum.photos/seed/picsum/200" class="img-fluid rounded-3" alt="">
+      </div>
+      <div class="col">
+        <div class="small">
+            <span class="text-primary m-0">{{item.name}}</span>  |  <span class="text-muted">{{item.date}}</span> 
+        </div>
+        <p>
+          {{item.message}}
+        </p>
       </div>
     </div>
-    <!-- row 2 -->
-    <div class="row">      
-        <!-- comment cover -->
-        <div class="movie-cover col-sm-2">
-            <img src="https://picsum.photos/seed/picsum/200/300" class="cover" alt="">
-          </div>
-          
-          <!-- comment details -->
-          <div class="movie-details col-sm-2">
-            <label for="username">{{username}}</label>
-            <br>
-            <label for="username">{{comment}}</label>
-            <br>
-          </div>
-        </div>
-        <!-- row 3 -->
-    <div class="row flex-row-reverse">      
-        <!-- comment cover -->
-        <div class="movie-cover col-sm-2">
-            <img src="https://picsum.photos/seed/picsum/200/300" class="cover" alt="">
-          </div>
-          
-          <!-- comment details -->
-          <div class="movie-details col-sm-2">
-            <label for="username">{{username}}</label>
-            <br>
-            <label for="username">{{comment}}</label>
-            <br>
-          </div>
-        </div>
-        <div class="btn-comment text-center mr-5">
-          <button class="btn btn-primary mr-5">Show More/Less Comments</button>
-        </div>
-        
+  </div>
+  
+
 </div>
