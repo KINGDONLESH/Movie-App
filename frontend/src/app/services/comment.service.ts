@@ -15,7 +15,7 @@ export class CommentService {
 
   /**
    * gets a list of comment records by movie ID
-   * @param movieId id of movie as recorded in the database
+   * @param movieId id of movie from movie API
    * @returns Observable<[]> : [ { comment_id, message, user_id, movie_id, created_at } ]
    */
   getCommentsByMovieId(movieId: string): Observable<any> {
