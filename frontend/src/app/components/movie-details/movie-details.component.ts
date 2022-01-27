@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MovieServiceService } from 'src/app/services/movie-service.service';
 
 @Component({
   selector: 'app-movie-details',
@@ -15,9 +16,36 @@ export class MovieDetailsComponent implements OnInit {
   movie_genre!: any;
   movie_rating: any = 1;
 
-  constructor() { }
+  movieArr: any = [];
+  results: any = [];
+  movie_pic: any;
+
+  constructor(private movieApi: MovieServiceService) { }
 
   ngOnInit(): void {
+  }
+
+  getPupolarMovies(): void{
+    this.movieApi.popularMovies()
+    .subscribe((res: any) => {
+      this.movieArr = res.results; 
+      console.log(this.movieArr);
+      //console.log(this.movieArr[0].title);
+      
+    },err =>{
+      console.log(err);
+      
+    })
+  }
+
+  getMovie(): void{
+    this.movie_name = this.movieArr[0].title;
+    this.movie_rating = this.movieArr[0].vote_average;
+
+    // this.pic = this.movieArr.results.backdrop_path;
+    console.log(this.movie_name);
+    // console.log(this.pic);
+    
   }
 
 }
