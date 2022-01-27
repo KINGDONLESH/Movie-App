@@ -1,22 +1,25 @@
-<div class="mt-0">
-    <app-carousal></app-carousal>
-    <br><br><br>
-</div>
+<div class="py-5" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.384), rgba(0, 0, 0, 0.384)), url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');">
+    <div class="mt-0">
+        <app-carousal></app-carousal>
+        <br><br><br>
+    </div>
+        
+    <h4 class="ms-5 my-5 display-4 text-center text-muted">Browse Latest Movies</h4>
 
-<div class="container-fluid mt-3">
-    
-    <h4><strong>Browse Movies</strong> </h4>
-</div>
-
-<div class="container-fluid d-flex flex-wrap mt-2 mx-3">
-    <div class="card mt-4 mx-3"  routerLink='details' style="width: 14rem;" *ngFor="let movie of movieArr" (click)="setMovieId(movie.id)">
-                
-        <img class="card-img-top" src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="movie.original_title">
-                <div class="card-body bg-dark text-light">
-                    <p class="card-title ">{{movie.original_title}}</p>
-                    <!-- <p class="card-text">{{movie.release_date}}</p> -->
+    <div class="justify-content-center d-flex flex-wrap mt-2">
+        <div class="card movie-card mt-4 mx-1 mx-sm-2 mx-md-3 border-0" routerLink='details' style="width: 14rem;" *ngFor="let movie of movieArr">
+                    
+            <img class="card-img-top" src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="movie.original_title">
+                <div class="card-body text-light border-danger border-top">
+                    <span class=" text-center  card-rating small float-end ms-1 text-muted border border-secondary rounded-circle p-1" style="width: 2rem; height:2rem;">{{movie.vote_average}}</span>
+                    <p class="card-title">
+                            {{movie.original_title}}
+                    </p>
+                        
+            </div>
         </div>
     </div>
+
 </div>
 
 
