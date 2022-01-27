@@ -8,50 +8,42 @@ import { MovieServiceService } from 'src/app/services/movie-service.service';
 })
 export class MovieDetailsComponent implements OnInit {
 
-  movie_name: any = "Title of the movie";
-  movie_description: any = "Shiba did this";
+  movie_name: any;
+  movie_description: any;
+  movie_tag: any;
   movie_runtime!: any;
   movie_release_date!: any;
   movie_director!: any;
-  movie_genre!: any;
+  movie_genre: any = [];
   movie_rating: any = 1;
-
-  movieArr: any = [];
-  results: any = [];
-  movie_pic: any;
 
   constructor(private movieApi: MovieServiceService) { }
 
+  movie: any;
+  background: any;
+  poster: any;
+
   ngOnInit(): void {
-    this.getMovie();
-    this.getPupolarMovies();
-    console.log("shu")
+    this.getDetailsMovieIteam();
   }
 
-  getPupolarMovies(): void{
-    console.log("Shiba");
-    this.movieApi.popularMovies()
-    .subscribe((res: any) => {
-      this.movieArr = res.results; 
-      console.log(this.movieArr);
-      //console.log(this.movieArr[0].title);
-      
-    },err =>{
-      console.log(err);
-      
+  getDetailsMovieIteam(): void{
+    this.movieApi.getCurrentMovie()
+    .subscribe(res =>{
+      console.log(res);
+      this.movie = res;
+
+      // console.log(this.movie.id);
+      this.background = `"https://image.tmdb.org/t/p/original${this.movie.backdrop_path}"`
+      this.poster = `https://image.tmdb.org/t/p/original${this.movie.poster_path}`
+      console.log(this.background);
+      this.movie_name = this.movie.title;
+      this.movie_description = this.movie.overview;
+      this.movie_tag = this.movie.tagline;
+      this.movie_genre = this.movie.genres;
+      this.movie_runtime = this.movie.runtime;
+      this.movie_release_date = this.movie.release_date;
     })
-  }
-
-  getMovie(): void{
-    this.movie_name = this.movieArr[0].title;
-    this.movie_rating = this.movieArr[0].vote_average;
-
-    // this.pic = this.movieArr.results.backdrop_path;
-    console.log(this.movie_name);
-    console.log("shiba");
-    //console.log(this.movieArr[0].vote_average);
-    // console.log(this.pic);
-    
   }
 
 }
