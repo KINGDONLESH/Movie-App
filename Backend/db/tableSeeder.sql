@@ -20,13 +20,13 @@ VALUES
 ('mash', 'mash@email.com', 'mash123');
 
 
---MOVIES TABLE
-DROP TABLE IF EXISTS movies CASCADE;
-CREATE TABLE movies(
-    movie_id SERIAL PRIMARY KEY,
-    api_movie_id VARCHAR(255) NOT NULL,
-    title VARCHAR(255) NOT NULL
-);
+-- --MOVIES TABLE
+-- DROP TABLE IF EXISTS movies CASCADE;
+-- CREATE TABLE movies(
+--     movie_id SERIAL PRIMARY KEY,
+--     api_movie_id VARCHAR(255) NOT NULL,
+--     title VARCHAR(255) NOT NULL
+-- );
 
 
 --WATCHLIST TABLE
@@ -34,7 +34,7 @@ DROP TABLE IF EXISTS watchlist CASCADE;
 CREATE TABLE watchlist(
     watchlist_id SERIAL PRIMARY KEY,
     FOREIGN KEY (user_id) REFERENCES users (user_id),
-    FOREIGN KEY (movie_id) REFERENCES movies (movie_id)
+    movie_id VARCHAR(50) NOT NULL
     created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
@@ -46,7 +46,6 @@ CREATE TABLE comments(
     user_id INT NOT NULL,
     movie_id INT NOT NULL,
     created_at TIMESTAMPTZ DEFAULT NOW()
-    FOREIGN KEY(user_id) REFERENCES users (user_id),
-    FOREIGN KEY(movie_id) REFERENCES movies (movie_id),
+    FOREIGN KEY(user_id) REFERENCES users (user_id)
     
 );
