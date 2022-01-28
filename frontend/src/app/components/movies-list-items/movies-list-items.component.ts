@@ -32,20 +32,7 @@ export class MoviesListItemsComponent implements OnInit {
     return this.rating = this.rating + 1;
   }
 
-  // getPop(): void{
-  //   this.movieApi.popularMovies().subscribe((res: any)=>{
-  //     //this.movieArr = res;
-  //     console.log("the popular obj: "+res)
-  //   })
-  // }
-
-  // showMore(){
-  //   this.paginationLimit = Number(this.paginationLimit) + 10;
-  // }
-
-  // showLess(){
-  //   this.paginationLimit = Number(this.paginationLimit) - 10;
-  // }
+  
 
   getPupolarMovies(): void{
     this.movieApi.popularMovies()
@@ -54,7 +41,7 @@ export class MoviesListItemsComponent implements OnInit {
       
       console.log('The length of movie array:', this.movieArr.length)
       console.log(this.movieArr);
-      //console.log(this.movieArr[0].title);
+     
     },err =>{
       console.log(err);
   
@@ -64,9 +51,9 @@ export class MoviesListItemsComponent implements OnInit {
   getMovie(): void{
     this.title = this.movieArr[0].title;
 
-    // this.pic = this.movieArr.results.backdrop_path;
+    
     console.log(this.title);
-    // console.log(this.pic);
+    
     
   }
 

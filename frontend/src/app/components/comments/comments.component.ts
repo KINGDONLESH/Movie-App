@@ -1,7 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
 import { first } from 'rxjs';
-// import { getSyntheticLeadingComments } from 'typescript';
 import {CommentService} from '../../services/comment.service'
 
 const list = [
@@ -50,7 +49,6 @@ export class CommentsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //this.getComments();
   
   }
 
@@ -58,18 +56,14 @@ export class CommentsComponent implements OnInit {
     const half = Math.ceil(this.allComments.length / 2);    
     const firstHalf = this.allComments.slice(0, half);
 
-    // Update list to display
+    
     if(this.displayAllComments){
-      // console.log('Display all: 1'  + this.allComments);
-      // console.log('Display all: 2'  + JSON.stringify(this.allComments));
-
-      // console.log(`Display all: 3: ${this.allComments}`);
-      // console.log(`Display all: 4: ${JSON.stringify(this.allComments)}`);
+     
 
       this.testArr = this.allComments;
     }else{
       this.testArr = firstHalf;
-      //console.log('Display half: ' + JSON.stringify(firstHalf));
+      
     }
 
     this.displayAllComments = !this.displayAllComments;
@@ -77,20 +71,4 @@ export class CommentsComponent implements OnInit {
   }
 }
 
-// getComments(): void{
-//   this.commentApi: Comment()
-//   .subscribe((res:any)) =>
-//   this.commentsArr = res.resuls.splice(0, this.numberOFComments)
 
-
-
-
-  
-// }
-
-
-
-
-// function getComments() {
-//   throw new Error('Function not implemented.');
-// }
