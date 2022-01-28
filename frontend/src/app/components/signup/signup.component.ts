@@ -49,5 +49,6 @@ export class SignupComponent implements OnInit {
 
   submit(): void{
     console.log("Successfully registered!!");
+    window.alert("Successfully registered!!");
   }
 }

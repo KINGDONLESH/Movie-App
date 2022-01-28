@@ -20,7 +20,6 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
-
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
@@ -39,7 +38,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     SignupComponent,
     GalleryComponent,
     FooterComponent,
-   
+    
   ],
   imports: [
     BrowserModule,

@@ -50,3 +50,27 @@
 }
 .btn3{
   display:flex;}
+
+.movie-card{
+background: rgba(0, 0, 0, 0);
+transition: transform .2s;
+.card-img-top{
+    opacity: 0.9;
+    transition: 0.3s;
+}
+
+.card-img-top:hover{
+    opacity: 1
+}
+.card-body {
+    background: rgba(0, 0, 0, 0.829);
+}
+
+
+
+}
+
+.movie-card:hover {
+transform: scale(1.04); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.616);
+}
