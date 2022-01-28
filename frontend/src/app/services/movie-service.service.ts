@@ -15,21 +15,21 @@ export class MovieServiceService {
   constructor(private http: HttpClient) { }
 
   getLatest(): Observable<any> {
-    return this.http.get(`${environment.baseUrl}/860623?${environment.apiKey}`)
+    return this.http.get(`${environment.baseUrl}/634649?${environment.apiKey}`)
 
     let x = Math.floor((Math.random() * 4) + 1);
     return this.http.get<any[]>(`https://api.themoviedb.org/3/movie/popular?api_key=df28d542641cabda05a3ba0a68a5150b&language=en-US&page=${x}`);
   }
 
   getLatest1(): Observable<any> {
-    return this.http.get(`${environment.baseUrl}/429617?${environment.apiKey}`)
+    return this.http.get(`${environment.baseUrl}/524434?${environment.apiKey}`)
 
     let x = Math.floor((Math.random() * 4) + 1);
     return this.http.get<any[]>(`https://api.themoviedb.org/3/movie/popular?api_key=df28d542641cabda05a3ba0a68a5150b&language=en-US&page=${x}`);
   }
 
   getLatest2(): Observable<any> {
-    return this.http.get(`${environment.baseUrl}/885110?${environment.apiKey}`)
+    return this.http.get(`${environment.baseUrl}/585083?${environment.apiKey}`)
 
     let x = Math.floor((Math.random() * 4) + 1);
     return this.http.get<any[]>(`https://api.themoviedb.org/3/movie/popular?api_key=df28d542641cabda05a3ba0a68a5150b&language=en-US&page=${x}`);

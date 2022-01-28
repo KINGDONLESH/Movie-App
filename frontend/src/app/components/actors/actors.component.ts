@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { MovieServiceService } from 'src/app/services/movie-service.service';
 
@@ -13,7 +14,11 @@ export class ActorsComponent implements OnInit {
   character_name!: any;
   isClicked: boolean = false;
 
-  
+  page = 1;
+  count = 0;
+  tableSize = 6;
+  tableSizes = [3, 6, 9, 12];
+  currentIndex = -1;
 
   constructor(private movieApi: MovieServiceService) { }
 
@@ -42,4 +47,15 @@ export class ActorsComponent implements OnInit {
   clicked(): void {
     this.message = "Show more"
   }
+
+  onTableDataChange(event: any){
+    this.page = event;
+    this.actors();
+  }  
+
+  onTableSizeChange(event: any): void {
+    this.tableSize = event.target.value;
+    this.page = 1;
+    this.actors();
+  }  
 }
