@@ -1,22 +1,27 @@
 <div class="container mx-md-5 px-md-5">
 
   <div class="mb-5">
-    <div class="row align-items-center">
+    <div class="row align-items-start">
       <div class="col-1"  style="max-width: 80px;">
         <img src="https://picsum.photos/seed/picsum/200" class="img-fluid rounded-3" alt="">
       </div>
-      <textarea class="form-control col" id="exampleFormControlTextarea1" placeholder="join the conversation. . ." rows="1"></textarea>
+      <div class="col">  
+        <textarea class="form-control col" id="exampleFormControlTextarea1" placeholder="join the conversation. . ." rows="1"></textarea>    
+        <button class="btn mt-1 btn-sm btn-primary" (click)="postComment()">post</button>   
+      </div>
+      
     </div>
+    
   </div>
 
-  <div class="mb-5" *ngFor="let item of testArr">
+  <div class="mb-5" *ngFor="let item of comments">
     <div class="row align-items-start">
       <div class="col-1"  style="max-width: 80px;">
         <img src="https://picsum.photos/seed/picsum/200" class="img-fluid rounded-3" alt="">
       </div>
       <div class="col">
         <div class="small">
-            <span class="text-primary m-0">{{item.name}}</span>  |  <span class="text-muted">{{item.date}}</span> 
+            <span class="text-primary m-0">{{item.user_id}}</span>  |  <span class="text-muted">{{item.created_at}}</span> 
         </div>
         <p>
           {{item.message}}

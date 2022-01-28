@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { CommentService } from 'src/app/services/comment.service';
 
 const list = [
     {
@@ -29,14 +30,41 @@ const list = [
   styleUrls: ['./comments.component.scss']
 })
 export class CommentsComponent implements OnInit {
-
-  username: any = "Shiba username";
-  comment: any = "Koenaite comment";
+  
   testArr: any = list;
-  constructor() { }
+  @Input() movieId: any;
+  comments: any;
+
+  constructor(
+    private commentService: CommentService
+  ) { }
 
   ngOnInit(): void {
-    console.log(list)
+    //load movie comments
+    this.commentService.getCommentsByMovieId('550')
+      .subscribe(data => {
+        console.log(data);
+        this.comments = data;
+      },
+      err => {
+        console.log(err);
+      })
   }
+
+  postComment(): void {
+    let comment = {
+      userId: 2,
+      movieId: '550',
+      comment: 'Another comment from Zizipho'
+    }
+    this.commentService.addCommentToMovie(comment)
+      .subscribe(data => {
+        console.log(data);
+      },
+      err => {
+        console.log(err);
+      })
+  }
+  
 
 }
