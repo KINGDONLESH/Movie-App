@@ -1,5 +1,6 @@
 .carousel-item {
-    max-height: 500px;
+    max-height: 600px;
+    
 }
 
 .input-group {
@@ -9,4 +10,10 @@
     margin-right: 30px;
     max-width: fit-content;
 
+}
+
+.carousel-item {
+    object-fit: cover;
+    opacity: 0.8;
+     
 }
