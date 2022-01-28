@@ -50,4 +50,8 @@ export class MovieServiceService {
   searchMovie(): Observable<any> {
     return this.http.get(`${environment.baseUrl}/search/movie?sort_by=popularity.desc`)
   }
+
+  getActors(): Observable<any> {
+    return this.http.get(`http://api.themoviedb.org/3/movie/${this.detailMovieId}/casts?api_key=bd71dc7772433931f0b658c89f90bf2d`)
+  }
 }

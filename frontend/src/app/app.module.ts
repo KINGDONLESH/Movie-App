@@ -40,7 +40,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     SignupComponent,
     GalleryComponent,
     FooterComponent,
-    MovielistComponent
+    
   ],
   imports: [
     BrowserModule,
