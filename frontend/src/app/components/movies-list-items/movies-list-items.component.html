@@ -4,7 +4,7 @@
         <br><br><br>
     </div>
         
-    <h4 class="ms-5 my-5 display-4 text-center text-muted">Browse Latest Movies</h4>
+    <h4 class="my-5 display-4 text-center text-muted">Browse Latest Movies</h4>
 
     <div class="justify-content-center d-flex flex-wrap mt-2">
         <div class="card movie-card mt-4 mx-1 mx-sm-2 mx-md-3 border-0" routerLink='details' style="width: 14rem;" *ngFor="let movie of movieArr" (click)="setMovieId(movie.id)">
@@ -15,84 +15,32 @@
                     <p class="card-title">
                             {{movie.original_title}}
                     </p>
+
+                    
                         
             </div>
+
+            
         </div>
+        
+    </div>
+    <div class="ms-5 my-5" style="margin-right: 15px;">
+        <div>
+  
+   <button *ngIf="numberOfMovies <= 10" class="glow-on-hover btn btn-outline-danger float-end paginationLimit list.length" (click)="showMore()"> 
+    Show More
+</button>
+     <button *ngIf="numberOfMovies > 10" class="glow-on-hover float-end paginationLimit > 3 list.length" (click)="showLess()"> 
+    Show Less
+</button>
+
+
+
+</div>
     </div>
 
 </div>
 
-<div>
-   <!-- <app-movielist></app-movielist> -->
-   <button class="glow-on-hover float-end paginationLimit list.length" (click)="showMore()"> 
-    Show More
-</button>
-     <button class="glow-on-hover float-end paginationLimit > 3 list.length" (click)="showLess()"> 
-    Show Less
-</button>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-     <!-- <ul class="list"> -->
-
-
-
-
-
-
-
-   <!-- <div>
-        <h3> {{title}}</h3>
-  <body>
-    <a href="#" class="button">
-       <div class="qube">
-        <ul class="list">
-          <li *ngFor="let l of moviesListItems | slice : showMore:movievsListItems">
-            {{l.}
-        </li>
-    </ul>
-         <div class="back">view less!</div>
-            <button *ngIf ="moviesListItems < list.length" (click)="showMoreItems()">
-          <div class="front">view more!</div>
-          <button *ngIf ="moviesListItems > 5" (click)="showLessItems()"></button>
-       </div>
-    </a>
- </body>
-
-</div>
-
-
-
-
- <div> -->
-
-
-
-
-
-
-
-        
-
-
-
- 
-<br><br>
 
 
         
