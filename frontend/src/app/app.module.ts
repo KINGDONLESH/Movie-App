@@ -20,7 +20,6 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 // import { FooterComponent } from './components/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { MovielistComponent } from './components/movielist/movielist.component';
 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
