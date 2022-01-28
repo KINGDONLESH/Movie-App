@@ -32,20 +32,11 @@ const list = [
   styleUrls: ['./comments.component.scss']
 })
 export class CommentsComponent implements OnInit {
-  // commentsArr: any = [];
-  // results: any = [];
-  // title: any;
-  // numberOfComments: number = 10;
-  // commentsTobeDisplayed: any;
-
-  testArr: any = [];
   username: any = "Shiba username";
   comment: any = "Koenaite comment";
   getComments: any;
+  testArr: any = list;
   constructor(private CommentApi: CommentService) { 
-    // this.commentsArr = []
-
-
 
    }
 
@@ -54,21 +45,3 @@ export class CommentsComponent implements OnInit {
   
   }
 }
-
-// getComments(): void{
-//   this.commentApi: Comment()
-//   .subscribe((res:any)) =>
-//   this.commentsArr = res.resuls.splice(0, this.numberOFComments)
-
-
-
-
-  
-// }
-
-
-
-
-// function getComments() {
-//   throw new Error('Function not implemented.');
-// }

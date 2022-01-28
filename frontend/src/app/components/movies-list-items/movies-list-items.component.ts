@@ -8,19 +8,21 @@ import { MovieServiceService } from 'src/app/services/movie-service.service';
   styleUrls: ['./movies-list-items.component.scss']
 })
 export class MoviesListItemsComponent implements OnInit {
+
   rating = 0;
   movieArr: any = [];
   results: any = [];
   title: any;
   pic: any;
-  numberOfMovies : number = 10;
-  moviesToBeDisplayed: any;
+
+  startPage: number;
+  paginationLimit: number;
+
 
   constructor(private movieApi: MovieServiceService) { 
-    this.movieArr = []
-    
-    
-     }
+    this.startPage = 10;
+    this.paginationLimit = 20;
+  }
 
   ngOnInit(): void {
     this.getPupolarMovies();
@@ -39,20 +41,18 @@ export class MoviesListItemsComponent implements OnInit {
   //   })
   // }
 
-  // showMore(){
-  //   this.paginationLimit = Number(this.paginationLimit) + 10;
-  // }
+  showMore(){
+    this.paginationLimit = Number(this.paginationLimit) + 10;
+  }
 
-  // showLess(){
-  //   this.paginationLimit = Number(this.paginationLimit) - 10;
-  // }
+  showLess(){
+    this.paginationLimit = Number(this.paginationLimit) - 10;
+  }
 
   getPupolarMovies(): void{
     this.movieApi.popularMovies()
     .subscribe((res: any) => {
-      this.movieArr = res.results.splice(0, this.numberOfMovies);
-      
-      console.log('The length of movie array:', this.movieArr.length)
+      this.movieArr = res.results; 
       console.log(this.movieArr);
       //console.log(this.movieArr[0].title);
     },err =>{
@@ -75,23 +75,4 @@ export class MoviesListItemsComponent implements OnInit {
     console.log(id);
     
   }
-
-
-  showMoreItems(){
-
-    if(this.numberOfMovies < 20 ){
-      this.numberOfMovies = this.numberOfMovies + 5
-      this.getPupolarMovies()
-    }
-  }
-
-  showLessItems(){
-    if(this.numberOfMovies  > 10){
-      this.numberOfMovies = this.numberOfMovies - 5
-      this.getPupolarMovies()
-    }
-  }
-
-
-
 }
