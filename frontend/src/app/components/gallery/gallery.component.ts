@@ -9,10 +9,21 @@ import { MovieServiceService } from 'src/app/services/movie-service.service';
 })
 export class GalleryComponent implements OnInit {
 
+  trailerMovie: any;
+
   constructor(private movieApi: MovieServiceService,
               private _sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
+    this.trailer();
+  }
+
+  trailer(): void{
+    this.movieApi.getTrailer()
+    .subscribe(res =>{
+      console.log(res.results);
+      
+    })
   }
 
 }
