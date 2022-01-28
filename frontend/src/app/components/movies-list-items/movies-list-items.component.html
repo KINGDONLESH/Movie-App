@@ -1,7 +1,6 @@
 <div class="py-5" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.384), rgba(0, 0, 0, 0.384)), url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');">
     <div class="mt-0">
         <app-carousal></app-carousal>
-        <br><br><br>
     </div>
         
     <h4 class="my-5 display-4 text-center text-muted">Browse Latest Movies</h4>
@@ -30,7 +29,7 @@
    <button *ngIf="numberOfMovies <= 10" class="glow-on-hover btn btn-outline-danger float-end paginationLimit list.length" (click)="showMore()"> 
     Show More
 </button>
-     <button *ngIf="numberOfMovies > 10" class="glow-on-hover float-end paginationLimit > 3 list.length" (click)="showLess()"> 
+     <button *ngIf="numberOfMovies > 10" class="glow-on-hover btn btn-outline-danger float-end paginationLimit > 3 list.length" (click)="showLess()"> 
     Show Less
 </button>
 
