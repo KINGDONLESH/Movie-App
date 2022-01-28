@@ -40,11 +40,11 @@
             id="password" 
             formControlName="password"
             placeholder="Enter your password" required>
-            <span class="details">{{passwordMessage}}</span>
+            <span class="details">{{message}}</span>
           </div>
         </div>
         <div class="button">
-          <input type="submit" value="Register" [disabled]="fieldsWithData()" (click)="submit()">
+          <input type="submit" value="Register" [disabled]="!fieldsWithData()" (click)="submit()">
           <input type="reset" value="Reset">
         </div>
         

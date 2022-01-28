@@ -38,7 +38,7 @@ export class CommentsComponent implements OnInit {
   // numberOfComments: number = 10;
   // commentsTobeDisplayed: any;
 
-
+  testArr: any = [];
   username: any = "Shiba username";
   comment: any = "Koenaite comment";
   getComments: any;
