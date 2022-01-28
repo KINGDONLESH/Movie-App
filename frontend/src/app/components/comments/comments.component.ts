@@ -22,6 +22,11 @@ const list = [
       date: '1days ago',
       message: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos sit error voluptatibus veniam exercitationem veritatis nisi dolores eos earum itaque illum quae sapiente, iste unde quo ab assumenda. Totam, harum.'
     },
+    {
+      name: 'Simphiwe',
+      date: '3 days ago',
+      message: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos sit error voluptatibus veniam exercitationem veritatis nisi dolores eos earum itaque illum quae sapiente, iste unde quo ab assumenda. Totam, harum.'
+    }
 ]; 
 
 @Component({
@@ -66,5 +71,6 @@ export class CommentsComponent implements OnInit {
       })
   }
   
-
 }
+
+

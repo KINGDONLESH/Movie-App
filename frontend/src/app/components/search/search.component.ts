@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MovieServiceService } from '../../services/movie-service.service'
 
 @Component({
   selector: 'app-search',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  movieArr: any = [];
+  constructor(private movieApi: MovieServiceService) { }
 
   ngOnInit(): void {
   }
 
+  search(): void {
+    this.movieApi.searchMovie().
+    subscribe((res: any) => {
+      this.movieArr = res.results}, 
+      err=>{console.log(err)}
+      );
+  }
 }

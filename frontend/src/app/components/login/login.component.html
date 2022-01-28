@@ -1,17 +1,33 @@
 <br><br><br><br><br><br>
-<div class="container" style="height: 55vh">
-        <div class="col-md-6">
-          <form>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-            </div>
-            <button type="submit" class="btn btn-success mt-3" routerLink='/details'>Submit</button>
-          </form>
+<div class="container mx-auto mt-5">
+  <div class="title">Sign In</div>
+  <div class="content">
+    <form [formGroup]="myForm" (ngSubmit)="submit()" ngNativeValidate>
+      <div class="user-details">
+        <div class="input-box">
+          <span class="details">Email</span>
+          <input 
+          type="email"
+          id="email"
+          formControlName="email"
+          placeholder="Enter your email" required>
         </div>
+        <div class="input-box">
+          <span class="details">Password</span>
+          <input 
+          type="password"
+          id="password" 
+          formControlName="password"
+          placeholder="Enter your password" required>
+        </div>
+        <span class="details">{{message}}</span>
+      </div>
+      <div class="button">
+        <input type="submit" value="Sign In" [disabled]="!fieldsWithData()" (click)="submit()">
+        <input type="reset" value="Reset">
+      </div>
+    </form> 
+  </div>
+  <br><br>
+  <a routerLink='/signup'><span class="details">Not Registered? Click here register</span></a>
 </div>

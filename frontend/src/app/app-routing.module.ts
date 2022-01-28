@@ -6,6 +6,7 @@ import { MoviesListItemsComponent } from './components/movies-list-items/movies-
 import { SignupComponent } from './components/signup/signup.component';
 
 const routes: Routes = [
+  {path: '', component: MoviesListItemsComponent},
   {path: 'details',component: DetailsPageComponent },
   {path: 'signup', component: SignupComponent},
   {path: 'login', component: LoginComponent},

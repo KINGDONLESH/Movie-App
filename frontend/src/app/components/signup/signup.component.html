@@ -40,15 +40,16 @@
             id="password" 
             formControlName="password"
             placeholder="Enter your password" required>
-            <span class="details">{{passwordMessage}}</span>
+            <span class="details">{{message}}</span>
           </div>
         </div>
         <div class="button">
           <input type="submit" value="Register" [disabled]="!fieldsWithData()" (click)="submit()">
           <input type="reset" value="Reset">
         </div>
-        
-        
       </form> 
     </div>
+    <br>
+    <a routerLink='/login'><span class="details">Already Registered? Click here to log in</span></a>
   </div>
+  
