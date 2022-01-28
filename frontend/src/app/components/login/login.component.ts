@@ -34,7 +34,6 @@ export class LoginComponent implements OnInit {
   fieldsWithData(): boolean{
     if(this.myForm.value.email && this.myForm.value.password !== ""){
       this.haveData = true;
-      this.message = "Fields can't be empty";
     }
     else{
       this.haveData = false;

@@ -11,6 +11,7 @@ export class SignupComponent implements OnInit {
 
   myForm!: FormGroup;
   haveData: boolean = false;
+  message: any = '';
   passwordMessage: any = '';
   strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
 
@@ -45,7 +46,15 @@ export class SignupComponent implements OnInit {
     }
   }
 
-  
+  messages(): void{
+
+    if(!this.fieldsWithData()){
+      this.message = "Fields can't be empty";
+    }
+    else{
+      this.message = "";
+    }
+  }
 
   submit(): void{
     console.log("Successfully registered!!");
