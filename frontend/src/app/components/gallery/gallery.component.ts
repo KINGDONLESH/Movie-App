@@ -19,7 +19,7 @@ export class GalleryComponent implements OnInit {
   }
 
   trailer(): void{
-    this.movieApi.getTrailor()
+    this.movieApi.getTrailer()
     .subscribe(res =>{
       console.log(res.results);
       
